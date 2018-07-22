@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8BCEFB04-829B-4817-9120-C3F3D031D69E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>bzgd_AIS</RootNamespace>
+    <AssemblyName>bzgd_AIS</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.ServiceModel.Channels" />
+    <Reference Include="System.ServiceModel.Discovery" />
+    <Reference Include="System.ServiceModel.Routing" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.3.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.3.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AppConfiguration\ConfigurationWorker.cs" />
+    <Compile Include="EntityFramework\Contexts\DataModelContext.cs" />
+    <Compile Include="EntityFramework\DataModel\AttachmentData.cs" />
+    <Compile Include="EntityFramework\DataModel\AttachmentType.cs" />
+    <Compile Include="EntityFramework\DataModel\Request.cs" />
+    <Compile Include="EntityFramework\DataModel\RequestStatus.cs" />
+    <Compile Include="EntityFramework\DataModel\SystemRole.cs" />
+    <Compile Include="EntityFramework\DataModel\User.cs" />
+    <Compile Include="Model\AttachmentsWindow\AttachmentsWindow.xaml.cs">
+      <DependentUpon>AttachmentsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GlobalControls\AttachmentIcon\AttachmentIcon.xaml.cs">
+      <DependentUpon>AttachmentIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MainMenu\MainMenuModel.cs" />
+    <Compile Include="Model\RequestCreation\RequestCreationWindow.xaml.cs">
+      <DependentUpon>RequestCreationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RequestCreation\RequestCreationModel.cs" />
+    <Compile Include="Model\RequestDetails\RequestDetailsModel.cs" />
+    <Compile Include="WCF\ConnectionDataTypes\ClassesHelpers\RequestsSearchFilter.cs" />
+    <Compile Include="WCF\ConnectionDataTypes\ClassesHelpers\RequestWithAttachments.cs" />
+    <Compile Include="WCF\ConnectionDataTypes\LongDataTypes\LongRequestWithAttachments.cs" />
+    <Compile Include="WCF\ConnectionDataTypes\ShortDataTypes\ListOfShortAttachments.cs" />
+    <Compile Include="WCF\ConnectionDataTypes\ShortDataTypes\ShortAttachmentData.cs" />
+    <Compile Include="WCF\ConnectionDataTypes\ShortDataTypes\ShortRequestWithAttachments.cs" />
+    <Compile Include="WCF\ConnectionDataTypes\ShortDataTypes\ShortRequestWithAttachmentsList.cs" />
+    <Compile Include="Model\GlobalControls\InitalizeConfigurationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\GlobalControls\InitalizeConfigurationWindow.Designer.cs">
+      <DependentUpon>InitalizeConfigurationWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RequestDetails\RequestDetailsForm.xaml.cs">
+      <DependentUpon>RequestDetailsForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GlobalControls\RequestPanel\RequestPanel.xaml.cs">
+      <DependentUpon>RequestPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GlobalControls\TrayMenu\TrayMenu.xaml.cs">
+      <DependentUpon>TrayMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GlobalControls\WorkingConfigurationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\GlobalControls\WorkingConfigurationWindow.Designer.cs">
+      <DependentUpon>WorkingConfigurationWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WCF\Client\Contract_Client.cs" />
+    <Compile Include="WCF\Client\IContract.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Model\AttachmentsWindow\AttachmentsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Model\Authentification\AuthentificationForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Model\GlobalControls\AttachmentIcon\AttachmentIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Model\GlobalControls\CalendarDialog\CalendarRetDate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Model\GlobalControls\Footer\Footer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Model\GlobalControls\Header\HeaderControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Model\GlobalControls\MenuButton\MenuButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Model\RequestCreation\RequestCreationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Model\RequestDetails\RequestDetailsForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Model\GlobalControls\RequestPanel\RequestPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Model\GlobalControls\TrayMenu\TrayMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Model\MainMenu\MainMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Model\MainMenu\Pages\TasksPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Model\MainMenu\Pages\UserPropertiesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Authentification\AuthentificationForm.xaml.cs" />
+    <Compile Include="Model\GlobalControls\CalendarDialog\CalendarRetDate.xaml.cs" />
+    <Compile Include="Model\GlobalControls\Footer\Footer.xaml.cs" />
+    <Compile Include="Model\GlobalControls\Header\HeaderControl.xaml.cs" />
+    <Compile Include="Model\GlobalControls\MenuButton\MenuButton.xaml.cs" />
+    <Compile Include="Model\Helpers\ChildClasses\ClickCommandHelper.cs" />
+    <Compile Include="Model\Helpers\ChildClasses\RouteCommand.cs" />
+    <Compile Include="Model\Helpers\Enumerations.cs" />
+    <Compile Include="Model\Helpers\StaticFunctions\WindowStaticFunctionsHelper.cs" />
+    <Compile Include="Model\MainMenu\MainMenu.xaml.cs" />
+    <Compile Include="Model\MainMenu\Pages\TasksPage.xaml.cs" />
+    <Compile Include="Model\MainMenu\Pages\UserPropertiesPage.xaml.cs" />
+    <Compile Include="ProgramStart.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Model\GlobalControls\InitalizeConfigurationWindow.resx">
+      <DependentUpon>InitalizeConfigurationWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\GlobalControls\WorkingConfigurationWindow.resx">
+      <DependentUpon>WorkingConfigurationWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

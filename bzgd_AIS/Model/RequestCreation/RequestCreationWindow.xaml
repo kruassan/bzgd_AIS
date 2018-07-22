@@ -1,0 +1,120 @@
+﻿<Window x:Class="bzgd_AIS.Model.RequestCreation.RequestCreationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:xctk = "http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:globalcontrols="clr-namespace:bzgd_AIS.Model.GlobalControls"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bzgd_AIS.Model.RequestCreation"
+        mc:Ignorable="d"
+        Title="RequestDetailsForm" Height="450" Width="800" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition  MaxHeight="40"/>
+            <RowDefinition/>
+            <RowDefinition MaxHeight="20"/>
+        </Grid.RowDefinitions>
+        <globalcontrols:HeaderControl Grid.Row="0" Background="LightYellow" HeaderCaption="Создание задания" HideIntoTray="False"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <Viewbox>
+                    <Label>Заголовок:</Label>
+                </Viewbox>
+                <TextBox Name="RequestCaption" Margin="4" MinWidth="150" Background="LightGreen"></TextBox>
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Height="auto">Текст задания</Label>
+                <TextBox TextWrapping="Wrap" Grid.Row="1" Name="RequestRecource" Margin="5" Background="LightYellow"></TextBox>
+            </Grid>
+            
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Вложения:</TextBlock>
+                </StackPanel>
+                <ItemsControl Name="AttachmentsList" Grid.Column="1" ItemsSource="{Binding AttachmentIcons, Mode=TwoWay}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+                <StackPanel Orientation="Horizontal" Grid.Column="2">
+                    <Button Name="AddAttachmentButton" Height="30" Margin="4" Grid.Column="2" Click="InsertAttachment">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Rectangle Name="BackgroundRectangle" StrokeThickness="1" Stroke="DarkGray" RadiusX="10" RadiusY="10" Fill="LightYellow"/>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Margin="4,0,0,0">Добавить вложения...</TextBlock>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="BackgroundRectangle" Property="Fill" Value="White"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Height="30" Margin="0,9,0,3">
+                    <TextBlock FontSize="15" VerticalAlignment="Center">Кому:</TextBlock>
+                    <TextBox Name="TargetOfRequest" FontSize="15" Margin="10,0,10,0" MinWidth="100" MaxWidth="150" VerticalAlignment="Center"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30">
+                    <TextBlock FontSize="20" VerticalAlignment="Center">Начало:</TextBlock>
+                    <xctk:MaskedTextBox Name="MaskedTB_FROM" FontSize="20" Margin="10,0,0,0" MinWidth="45" VerticalAlignment="Center" Mask="0000.00.00 00:00"/>
+                    <Button Click="DateFromCalendarSelect" Margin="10,0,10,0">Выбрать</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30">
+                    <TextBlock Margin="10,0,0,0" FontSize="20" VerticalAlignment="Center">Окончание:</TextBlock>
+                    <xctk:MaskedTextBox Name="MaskedTB_TO" FontSize="20" Margin="10,0,0,0" MinWidth="45" VerticalAlignment="Center" Mask="0000.00.00 00:00"/>
+                    <Button Click="DateToCalendarSelect" Margin="10,0,10,0">Выбрать</Button>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                <Button Name="AcceptAttachmentButton" Height="30" Margin="4" Grid.Column="2" Click="AcceptAttachment">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Rectangle Name="BackgroundRectangle" StrokeThickness="1" Stroke="DarkGray" RadiusX="10" RadiusY="10" Fill="LightYellow"/>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Margin="4,0,0,0">Подтвердить задание</TextBlock>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="BackgroundRectangle" Property="Fill" Value="White"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+
+
+
+
+        </Grid>
+        <globalcontrols:Footer Grid.Row="2"></globalcontrols:Footer>
+    </Grid>
+</Window>

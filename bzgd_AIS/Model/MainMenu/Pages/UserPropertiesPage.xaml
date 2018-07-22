@@ -1,0 +1,67 @@
+﻿<Page x:Class="bzgd_AIS.Model.MainMenu.Pages.UserPropertiesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:bzgd_AIS.Model.MainMenu.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UserPropertiesPage">
+
+    <Grid Background="LightBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="35" Text="Автозапуск при загрузке Windows:"></TextBlock>
+                <ComboBox Name="AutoRunItem" Width="100" Height="35" VerticalAlignment="Center">
+                    <ComboBoxItem>
+                        <TextBlock FontSize="20">Да</TextBlock>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock FontSize="20">Нет</TextBlock>
+                    </ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="35" Text="Сворачивание в трей:"></TextBlock>
+                <ComboBox Name="HideIntoTrayItem" Width="100" Height="35" VerticalAlignment="Center">
+                    <ComboBoxItem>
+                        <TextBlock FontSize="20">Да</TextBlock>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock FontSize="20">Нет</TextBlock>
+                    </ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="35" Text="Интервал обновления (сек.):"></TextBlock>
+                <TextBox Name="ReloadInterval" FontSize="25" Width="150" Height="35" VerticalAlignment="Center" TextAlignment="Center"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <Button Grid.Column="1" Grid.Row="1" Margin="60,0,60,0" Command="{Binding SaveConfigurationCommand}">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Rectangle Name="ButtonBackgroundRect" RadiusX="20" RadiusY="20" Fill="White" Stroke="White" StrokeThickness="1"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Сохранить</TextBlock>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonBackgroundRect" Property="Rectangle.Fill" Value="LightGreen"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+</Page>

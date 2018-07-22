@@ -1,0 +1,34 @@
+﻿<Window x:Class="bzgd_AIS.Model.GlobalControls.CalendarRetDate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bzgd_AIS.Model.GlobalControls"
+        mc:Ignorable="d"
+        Title="Выбор даты" Height="485" Width="420" WindowStyle="SingleBorderWindow" ResizeMode="NoResize">
+    <Window.Resources>
+        <ControlTemplate x:Key="HereButton" TargetType="Button">
+            <Grid>
+                <Rectangle Name="FillRectangle" RadiusX="15" RadiusY="15" Fill="Gold" Stroke="Black"/>
+                <TextBlock FontSize="20" Margin="35,0,35,0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{TemplateBinding Uid}"></TextBlock>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="FillRectangle" Property="Rectangle.Fill" Value="LightYellow"></Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid Height="440" Width="400">
+        <StackPanel Orientation="Vertical">
+            <Viewbox>
+                <Calendar Name="WorkingCalendar"></Calendar>
+            </Viewbox>
+
+            <Button Margin="0,0,0,0" Template="{StaticResource HereButton}" Uid="Подтвердить" Click="Accept"/>
+
+            <Button Margin="0,5,0,0" Template="{StaticResource HereButton}" Uid="Отмена" Click="Back"/>
+        </StackPanel>
+    </Grid>
+</Window>

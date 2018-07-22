@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="bzgd_AIS.Model.GlobalControls.RequestPanel.RequestPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:bzgd_AIS.Model.GlobalControls.RequestPanel"
+             mc:Ignorable="d" 
+             MaxHeight="200"
+             d:DesignHeight="200" d:DesignWidth="1000">
+    <UserControl>
+        <Grid>
+            <Rectangle StrokeThickness="1" Stroke="DarkBlue" RadiusX="30" RadiusY="30" Fill="White"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid Name="TopContent" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="6*"/>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">
+                        <TextBlock Margin="3">Заголовок:</TextBlock>
+                    </Viewbox>
+                    <Viewbox Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">
+                        <TextBlock Name="FromOrToTB" Margin="3"></TextBlock>
+                    </Viewbox>
+                    <TextBox Name="CaptionTB" Grid.Row="0" Grid.Column="2" Margin="6,6,25,6" IsReadOnly="True" Background="White"></TextBox>
+                </Grid>
+                <Grid Name="MidGrid" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Name="MidLeft" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Viewbox HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0">
+                            <TextBlock Margin="3">Дата создания:</TextBlock>
+                        </Viewbox>
+                        <TextBox Name="DateFromTB" Grid.Row="0" Grid.Column="1" Background="LightGreen" Margin="4" IsReadOnly="True"></TextBox>
+                        <Viewbox Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right">
+                            <TextBlock Margin="3">Дата завершения:</TextBlock>
+                        </Viewbox>
+                        <TextBox Name="DateToTB" Grid.Row="1" Grid.Column="1" Background="LightGreen" Margin="4" IsReadOnly="True"></TextBox>
+                        <Viewbox Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right">
+                            <TextBlock Margin="3">Статус:</TextBlock>
+                        </Viewbox>
+                        <TextBox Name="StatusTB" Grid.Row="2" Grid.Column="1" Background="LightGreen" Margin="4" IsReadOnly="True"></TextBox>
+                    </Grid>
+                    <Grid Name="MidRight" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Viewbox Grid.Row="0" Grid.Column="0">
+                            <TextBlock HorizontalAlignment="Right" Margin="3">Отправитель:</TextBlock>
+                        </Viewbox>
+                        <TextBox Name="LoginSenderTB" Grid.Row="0" Grid.Column="1" Background="LightGreen" Margin="4"></TextBox>
+                        <Viewbox Grid.Row="1" Grid.Column="0">
+                            <TextBlock HorizontalAlignment="Right" Margin="3">Получатель:</TextBlock>
+                        </Viewbox>
+                        <TextBox Name="LoginRecieverTB" Grid.Row="1" Grid.Column="1" Background="LightGreen" Margin="4" IsReadOnly="True"></TextBox>
+                        <Button Grid.Row="2" Grid.Column="1" Margin="0,3,15,3" Click="GetDetails">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Grid>
+                                        <Rectangle RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Gray" Name="DetailedInfoRectangle" Fill="Cornsilk"></Rectangle>
+                                        <Viewbox>
+                                            <TextBlock>Подробнее...</TextBlock>
+                                        </Viewbox>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="DetailedInfoRectangle" Property="Fill" Value="#ffd72f"></Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </Grid>
+                </Grid>
+                <StackPanel Margin="15,0,0,0" Name="AttachmentsStackPanel" Grid.Row="4" Grid.ColumnSpan="3" Orientation="Horizontal">
+                    <Viewbox>
+                        <TextBlock VerticalAlignment="Center">Вложения:</TextBlock>
+                    </Viewbox>
+                    <ItemsControl ItemsSource="{Binding AttachmentIcons, Mode=TwoWay}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </UserControl>
+</UserControl>
